@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-const mahmud = [
+const 𝗘𝗠𝗥𝗔𝗡 = [
     "baby",
     "bby",
     "babu",
@@ -16,15 +16,15 @@ const mahmud = [
 ];
 
 const baseApiUrl = async () => {
-    const base = await axios.get("https://raw.githubusercontent.com/mahmudx7/HINATA/main/baseApiUrl.json");
-    return base.data.mahmud;
+    const base = await axios.get("https://raw.githubusercontent.com/𝗘𝗠𝗥𝗔𝗡x7/HINATA/main/baseApiUrl.json");
+    return base.data.𝗘𝗠𝗥𝗔𝗡;
 };
 
 module.exports.config = {
     name: "baby",
     aliases: ["bby", "bbu", "jan", "janu", "wifey", "bot", "hinata", "hina"],
     version: "1.7",
-    author: "MahMUD",
+    author: "𝗘𝗠𝗥𝗔𝗡",
     countDown: 0,
     role: 0,
     description: "better then all sim simi & most fastest",
@@ -50,8 +50,8 @@ module.exports.onStart = async ({ api, event, args, usersData }) => {
         }
 
         if (args[0] === "teach") {
-            const mahmudStr = msg.replace("teach ", "");
-            const [trigger, ...responsesArr] = mahmudStr.split(" - ");
+            const 𝗘𝗠𝗥𝗔𝗡Str = msg.replace("teach ", "");
+            const [trigger, ...responsesArr] = 𝗘𝗠𝗥𝗔𝗡Str.split(" - ");
             const responses = responsesArr.join(" - ");
             if (!trigger || !responses) return api.sendMessage("❌ | teach [question] - [response1, response2,...]", event.threadID, event.messageID);
             const response = await axios.post(`${await baseApiUrl()}/api/jan/teach`, { trigger, responses, userID: uid });
@@ -60,8 +60,8 @@ module.exports.onStart = async ({ api, event, args, usersData }) => {
         }
 
         if (args[0] === "remove") {
-            const mahmudStr = msg.replace("remove ", "");
-            const [trigger, index] = mahmudStr.split(" - ");
+            const 𝗘𝗠𝗥𝗔𝗡Str = msg.replace("remove ", "");
+            const [trigger, index] = 𝗘𝗠𝗥𝗔𝗡Str.split(" - ");
             if (!trigger || !index || isNaN(index)) return api.sendMessage("❌ | remove [question] - [index]", event.threadID, event.messageID);
             const response = await axios.delete(`${await baseApiUrl()}/api/jan/remove`, { data: { trigger, index: parseInt(index, 10) }, });
             return api.sendMessage(response.data.message, event.threadID, event.messageID);
@@ -81,8 +81,8 @@ module.exports.onStart = async ({ api, event, args, usersData }) => {
         }
 
         if (args[0] === "edit") {
-            const mahmudStr = msg.replace("edit ", "");
-            const [oldTrigger, ...newArr] = mahmudStr.split(" - ");
+            const 𝗘𝗠𝗥𝗔𝗡Str = msg.replace("edit ", "");
+            const [oldTrigger, ...newArr] = 𝗘𝗠𝗥𝗔𝗡Str.split(" - ");
             const newResponse = newArr.join(" - ");
             if (!oldTrigger || !newResponse) return api.sendMessage("❌ | Format: edit [question] - [newResponse]", event.threadID, event.messageID);
             await axios.put(`${await baseApiUrl()}/api/jan/edit`, { oldTrigger, newResponse });
@@ -162,7 +162,7 @@ module.exports.onChat = async ({ api, event }) => {
         const message = event.body?.toLowerCase() || "";
         const attachments = event.attachments || [];
 
-        if (event.type !== "message_reply" && mahmud.some(word => message.startsWith(word))) {
+        if (event.type !== "message_reply" && 𝗘𝗠𝗥𝗔𝗡.some(word => message.startsWith(word))) {
             api.setMessageReaction("🪽", event.messageID, () => { }, true);
             api.sendTypingIndicator(event.threadID, true);
             
@@ -180,7 +180,7 @@ module.exports.onChat = async ({ api, event }) => {
                                 "babu khuda lagse🥺",
                                 "Hop beda😾,Boss বল boss😼",
                                 "আমাকে ডাকলে ,আমি কিন্তূ কিস করে দেবো😘 ",                      
-                                "naw amr boss k message daw 01836298139",
+                                "naw amr boss k message daw ",
                                 "গোলাপ ফুল এর জায়গায় আমি দিলাম তোমায় মেসেজ",
                                 "বলো কি বলবা, সবার সামনে বলবা নাকি?🤭🤏",
                                 "𝗜 𝗹𝗼𝘃𝗲 𝘆𝗼𝐮__😘😘",
@@ -192,7 +192,7 @@ module.exports.onChat = async ({ api, event }) => {
                                 "𝙏𝙪𝙢𝙖𝙧 𝙜𝙛 𝙣𝙖𝙞, 𝙩𝙖𝙮 𝙖𝙢𝙠 𝙙𝙖𝙠𝙨𝙤? 😂😂😂",
                                 "আমাকে ডেকো না,আমি ব্যাস্ত আসি🙆🏻‍♀",
                                 "𝗕𝗯𝘆 বললে চাকরি থাকবে না",
-                                "𝗕𝗯𝘆 𝗕𝗯𝘆 না করে আমার বস মানে, MahMUD ,MahMUD ও তো করতে পারো😑?",
+                                "𝗕𝗯𝘆 𝗕𝗯𝘆 না করে আমার বস মানে, 𝗘𝗠𝗥𝗔𝗡 ,𝗘𝗠𝗥𝗔𝗡 ও তো করতে পারো😑?",
                                 "আমার সোনার বাংলা, তারপরে লাইন কি? 🙈",
                                 "🍺 এই নাও জুস খাও..!𝗕𝗯𝘆 বলতে বলতে হাপায় গেছো না 🥲",
                                 "হটাৎ আমাকে মনে পড়লো 🙄", "𝗕𝗯𝘆 বলে অসম্মান করচ্ছিছ,😰😿",
@@ -243,7 +243,7 @@ module.exports.onChat = async ({ api, event }) => {
                 }, event.messageID);
             } else {
                 let userText = message;
-                for (const prefix of mahmud) {
+                for (const prefix of 𝗘𝗠𝗥𝗔𝗡) {
                 if (message.startsWith(prefix)) {
                         userText = message.substring(prefix.length).trim();
                         break;
